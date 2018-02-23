@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+
+	<h:form id="f_alunos">
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Nome" />
+			<p:inputText value="#{ConsultaMB.bean.nome}" />
+
+			<p:outputLabel value="Matrícula" />
+			<p:inputText value="#{ConsultaMB.bean.matricula}" />
+
+			<p:commandButton action="#{ConsultaMB.consultar}" update="f_alunos"
+				value="Consultar WS" />
+
+			<p:commandButton action="#{ConsultaMB.cadastrar}" update="f_alunos"
+				value="Cadastrar WS" />
+		</h:panelGrid>
+
+
+		<p:dataTable var="v" value="#{ConsultaMB.alunos}">
+			<p:column headerText="Nome">#{v.nome}</p:column>
+			<p:column headerText="Matrícula">#{v.matricula}</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>
